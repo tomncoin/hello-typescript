@@ -1,3 +1,4 @@
 - setup Prettier
 - type
 - interface
+- strictNullChecks
