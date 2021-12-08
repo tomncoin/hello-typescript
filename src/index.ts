@@ -57,3 +57,28 @@ console.log(getPetName(newContact));
 console.log(getPetName(newContact2));
 
 console.log(getFirstAddress(newContact)?.city);
+
+//extend interface
+interface Button {
+  label: string;
+  onclick: () => void;
+}
+
+const button: Button = {
+  label: "submit",
+  onclick: () => {
+    console.log("click submit");
+  },
+};
+
+interface IconButon extends Button {
+  icon: string;
+}
+
+const AddButton: IconButon = {
+  label: "submit",
+  onclick: () => {
+    console.log("click submit");
+  },
+  icon: "add-icon",
+};
