@@ -1,0 +1,3 @@
+- setup Prettier
+- type
+- interface
