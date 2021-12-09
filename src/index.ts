@@ -82,3 +82,45 @@ const AddButton: IconButon = {
   },
   icon: "add-icon",
 };
+
+class MyContact implements Contact {
+  name: string;
+  phone: string;
+
+  constructor(name: string, phone: string) {
+    this.name = name;
+    this.phone = phone;
+  }
+}
+
+const mycontact = new MyContact("Smith", "999");
+console.log(mycontact.name);
+
+interface ContactAdapter {
+  getData: () => Contact[];
+}
+
+class MyContactAdapter implements ContactAdapter {
+  getData() {
+    const contacts: Contact[] = [
+      { name: "Smith", phone: "123" },
+      { name: "John", phone: "456" },
+    ];
+
+    return contacts;
+  }
+}
+
+class ContactApp {
+  adapter: ContactAdapter;
+  constructor(adapter: ContactAdapter) {
+    this.adapter = adapter;
+  }
+  render() {
+    console.table(this.adapter.getData());
+  }
+}
+
+const adapter = new MyContactAdapter();
+const app = new ContactApp(adapter);
+app.render();
